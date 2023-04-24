@@ -10,12 +10,14 @@ import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.basta.studentbeanstest.R
 import com.basta.studentbeanstest.domain.models.Photo
 
 @Composable
-fun PhotoListItem(photo: Photo) {
+fun ImageListItem(photo: Photo) {
     Row(
         modifier = Modifier
             .padding(10.dp)
@@ -29,7 +31,7 @@ fun PhotoListItem(photo: Photo) {
 
         AsyncImage(
             model = photo.thumbnailUrl,
-            contentDescription = null,
+            contentDescription = stringResource(R.string.image_label),
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .width(100.dp)

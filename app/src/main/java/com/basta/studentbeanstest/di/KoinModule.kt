@@ -4,7 +4,10 @@ import com.basta.studentbeanstest.common.Constants
 import com.basta.studentbeanstest.data.remote.PhotoApi
 import com.basta.studentbeanstest.data.repository.PhotoRepositoryImpl
 import com.basta.studentbeanstest.domain.repository.PhotoRepository
+import com.basta.studentbeanstest.domain.use_case.authenticate.AuthenticateUseCase
 import com.basta.studentbeanstest.domain.use_case.get_photos.GetPhotosUseCase
+import com.basta.studentbeanstest.domain.use_case.validate_email.ValidateEmailUseCase
+import com.basta.studentbeanstest.domain.use_case.validate_password.ValidatePasswordUseCase
 import com.basta.studentbeanstest.presentation.image_list.ImageListViewModel
 import com.basta.studentbeanstest.presentation.sign_in.SignInViewModel
 import okhttp3.OkHttpClient
@@ -25,11 +28,12 @@ object KoinModule {
             viewModelModule
         )
 
-
-
     private val useCaseModule: Module
         get() = module {
             factory { GetPhotosUseCase(get()) }
+            factory { ValidateEmailUseCase() }
+            factory { ValidatePasswordUseCase() }
+            factory { AuthenticateUseCase() }
         }
 
     private val mainModule: Module
@@ -64,7 +68,7 @@ object KoinModule {
 
     private val viewModelModule: Module
         get() = module {
-            viewModel { SignInViewModel() }
+            viewModel { SignInViewModel(get(), get(), get()) }
             viewModel { ImageListViewModel(get()) }
         }
 }

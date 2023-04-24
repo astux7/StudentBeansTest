@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = Directions.image_list.name
+                        startDestination = Directions.sign_in.name
                     ) {
                         buildTheGraph(navController)
                     }

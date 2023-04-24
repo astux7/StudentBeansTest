@@ -3,7 +3,7 @@ package com.basta.studentbeanstest.presentation.sign_in
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.basta.studentbeanstest.R
+import com.basta.studentbeanstest.navigation.Directions
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -22,6 +23,10 @@ fun LoginScreen(
     navController: NavController
 ) {
     val viewModel: SignInViewModel = getViewModel()
+    val state = viewModel.state
+
+    var email by remember { mutableStateOf(state.email) }
+    var password by remember { mutableStateOf(state.password) }
 
     Column(
         modifier = Modifier
@@ -54,10 +59,8 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(35.dp))
 
         TextField(
-            value = "",
-            onValueChange = {
-
-            },
+            value = email,
+            onValueChange = { email = it },
             isError = false,
             modifier = Modifier.fillMaxWidth(),
             placeholder = {
@@ -68,13 +71,19 @@ fun LoginScreen(
             )
         )
 
+        if (state.emailError != null) {
+            Text(
+                text = state.emailError!!,
+                color = MaterialTheme.colors.error,
+                modifier = Modifier.align(Alignment.End)
+            )
+        }
+
         Spacer(modifier = Modifier.height(15.dp))
 
         TextField(
-            value = "",
-            onValueChange = {
-
-            },
+            value = password,
+            onValueChange = { password = it },
             isError = false,
             modifier = Modifier.fillMaxWidth(),
             placeholder = {
@@ -86,16 +95,31 @@ fun LoginScreen(
             visualTransformation = PasswordVisualTransformation()
         )
 
+        if (state.passwordError != null) {
+            Text(
+                text = state.passwordError!!,
+                color = MaterialTheme.colors.error,
+                modifier = Modifier.align(Alignment.End)
+            )
+        }
+
         Spacer(modifier = Modifier.height(15.dp))
 
         Button(
-            onClick = { },
+            onClick = {
+                viewModel.submit(email, password) { direction ->
+                    navController.navigate(direction)
+                }
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.End),
             colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onPrimary),
         ) {
-            Text(text = stringResource(R.string.sign_in_label), color = MaterialTheme.colors.background)
+            Text(
+                text = stringResource(R.string.sign_in_label),
+                color = MaterialTheme.colors.background
+            )
         }
     }
 }
