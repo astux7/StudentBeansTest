@@ -1,7 +1,6 @@
 package com.basta.studentbeanstest.presentation.sign_in
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -9,13 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.basta.studentbeanstest.R
-import com.basta.studentbeanstest.navigation.Directions
+import com.basta.studentbeanstest.presentation.sign_in.components.CustomTextField
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -58,22 +55,13 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(35.dp))
 
-        TextField(
-            value = email,
-            onValueChange = { email = it },
-            isError = false,
-            modifier = Modifier.fillMaxWidth(),
-            placeholder = {
-                Text(text = stringResource(R.string.email_label))
-            },
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Email
-            )
-        )
+        CustomTextField(Modifier, FieldType.EMAIL, email, state.emailError) {
+            email = it
+        }
 
-        if (state.emailError != null) {
+        state.emailError?.let {
             Text(
-                text = state.emailError!!,
+                text = it,
                 color = MaterialTheme.colors.error,
                 modifier = Modifier.align(Alignment.End)
             )
@@ -81,23 +69,13 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(15.dp))
 
-        TextField(
-            value = password,
-            onValueChange = { password = it },
-            isError = false,
-            modifier = Modifier.fillMaxWidth(),
-            placeholder = {
-                Text(text = stringResource(R.string.password_label))
-            },
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Password
-            ),
-            visualTransformation = PasswordVisualTransformation()
-        )
+        CustomTextField(Modifier, FieldType.PASSWORD, password, state.passwordError) {
+            password = it
+        }
 
-        if (state.passwordError != null) {
+        state.passwordError?.let {
             Text(
-                text = state.passwordError!!,
+                text = it,
                 color = MaterialTheme.colors.error,
                 modifier = Modifier.align(Alignment.End)
             )
