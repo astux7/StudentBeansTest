@@ -14,6 +14,6 @@ fun NavTitle(text: String) {
         text = text,
         fontWeight = FontWeight.Bold,
         fontSize = 24.sp,
-        color = MaterialTheme.colors.onPrimary
+        color = MaterialTheme.colors.primary
     )
 }

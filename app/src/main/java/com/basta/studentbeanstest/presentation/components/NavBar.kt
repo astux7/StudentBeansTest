@@ -44,7 +44,7 @@ fun NavBar(
                         Icon(
                             painter = painterResource(leftIcon),
                             contentDescription = stringResource(R.string.navigation_icon_label),
-                            tint = MaterialTheme.colors.onPrimary
+                            tint = MaterialTheme.colors.onBackground
                         )
                     }
                 }

@@ -1,20 +1,16 @@
 package com.basta.studentbeanstest.presentation.sign_in
 
-
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -23,9 +19,9 @@ import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun LoginScreen(
-    navController: NavController,
-    viewModel: SignInViewModel = getViewModel()
+    navController: NavController
 ) {
+    val viewModel: SignInViewModel = getViewModel()
 
     Column(
         modifier = Modifier
@@ -34,14 +30,6 @@ fun LoginScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
-        Image(
-            modifier = Modifier
-                .width(100.dp)
-                .padding(vertical = 20.dp),
-            painter = painterResource(id = R.drawable.logo),
-            contentDescription = stringResource(R.string.logo_label)
-        )
 
         Text(
             modifier = Modifier
@@ -105,9 +93,9 @@ fun LoginScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary),
+            colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onPrimary),
         ) {
-            Text(text = stringResource(R.string.sign_in_label))
+            Text(text = stringResource(R.string.sign_in_label), color = MaterialTheme.colors.background)
         }
     }
 }

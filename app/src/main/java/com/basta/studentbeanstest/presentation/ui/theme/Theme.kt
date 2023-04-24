@@ -10,13 +10,14 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 
 private val LightColorScheme = lightColors(
-    primary = ColorBlue,
-    secondary = ColorDarkBlue,
+    primary = ColorBlack,
+    secondary = ColorGrey,
+    onPrimary = ColorBlueLight,
     onSecondary = ColorWhite,
-    background = ColorBlue,
-    onBackground = ColorWhite,
-    onSurface = ColorWhite,
-    surface = ColorDarkBlue,
+    background = ColorWhite,
+    onBackground = ColorBlack,
+    onSurface = ColorBlack,
+    surface = ColorWhite,
     error = ColorError
 )
 
