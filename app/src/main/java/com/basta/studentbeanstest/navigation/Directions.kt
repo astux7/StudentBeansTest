@@ -3,9 +3,9 @@ package com.basta.studentbeanstest.navigation
 import androidx.navigation.NamedNavArgument
 
 object Directions {
-    val login = object : NavigationCommand {
+    val sign_in = object : NavigationCommand {
         override val route: String
-            get() = "login"
+            get() = "sign_in"
         override val name: String
             get() = route
         override val arguments: List<NamedNavArgument>

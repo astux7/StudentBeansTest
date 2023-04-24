@@ -1,5 +1,5 @@
 package com.basta.studentbeanstest.common
 
 object Constants {
-    const val API_URL = ""
+    const val IMAGE_API_URL = "https://jsonplaceholder.typicode.com/photos"
 }

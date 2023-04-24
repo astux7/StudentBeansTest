@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">StudentBeansTest</string>
+    <string name="password_label">Password</string>
+    <string name="email_label">Email</string>
+    <string name="logo_label">Student Beans logo</string>
+    <string name="sign_in_label">Log in</string>
+    <string name="welcome_label">Welcome back</string>
+    <string name="sign_in_body_label">Log in to your Student Beans account</string>
+    <string name="image_list_title">Photos</string>
+    <string name="navigation_icon_label">Navigation Icon</string>
 </resources>

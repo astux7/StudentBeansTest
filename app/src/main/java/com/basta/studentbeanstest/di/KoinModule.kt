@@ -1,7 +1,7 @@
 package com.basta.studentbeanstest.di
 
 import com.basta.studentbeanstest.presentation.image_list.ImageListViewModel
-import com.basta.studentbeanstest.presentation.login.LoginViewModel
+import com.basta.studentbeanstest.presentation.sign_in.SignInViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -11,7 +11,7 @@ object KoinModule {
 
     private val viewModelModule: Module
         get() = module {
-            viewModel { LoginViewModel() }
+            viewModel { SignInViewModel() }
             viewModel { ImageListViewModel() }
         }
 }
