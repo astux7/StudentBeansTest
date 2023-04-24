@@ -4,7 +4,6 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.basta.studentbeanstest.common.Resource
 import com.basta.studentbeanstest.domain.models.Photo
 import com.basta.studentbeanstest.domain.use_case.get_photos.GetPhotosUseCase
 import kotlinx.coroutines.flow.launchIn

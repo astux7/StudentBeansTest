@@ -1,7 +1,7 @@
 package com.basta.studentbeanstest.domain.use_case.get_photos
 
 import app.cash.turbine.test
-import com.basta.studentbeanstest.common.Resource
+import com.basta.studentbeanstest.presentation.image_list.Resource
 import com.basta.studentbeanstest.utils.FakeRepo
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert

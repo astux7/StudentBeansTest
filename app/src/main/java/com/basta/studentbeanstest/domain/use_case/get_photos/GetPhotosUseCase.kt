@@ -1,6 +1,6 @@
 package com.basta.studentbeanstest.domain.use_case.get_photos
 
-import com.basta.studentbeanstest.common.Resource
+import com.basta.studentbeanstest.presentation.image_list.Resource
 import com.basta.studentbeanstest.domain.models.Photo
 import com.basta.studentbeanstest.domain.models.toPhoto
 import com.basta.studentbeanstest.domain.repository.PhotoRepository

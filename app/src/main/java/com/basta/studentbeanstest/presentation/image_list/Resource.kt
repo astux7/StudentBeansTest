@@ -1,4 +1,4 @@
-package com.basta.studentbeanstest.common
+package com.basta.studentbeanstest.presentation.image_list
 
 // for network response
 sealed class Resource<T>(val data: T? = null, val message: String? = null) {

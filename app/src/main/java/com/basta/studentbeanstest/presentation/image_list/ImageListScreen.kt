@@ -16,7 +16,6 @@ import androidx.navigation.NavController
 import com.basta.studentbeanstest.presentation.components.NavBar
 import org.koin.androidx.compose.getViewModel
 import com.basta.studentbeanstest.R
-import com.basta.studentbeanstest.common.Resource
 import com.basta.studentbeanstest.navigation.Directions
 import com.basta.studentbeanstest.presentation.components.NavTitle
 import com.basta.studentbeanstest.presentation.image_list.components.ImageListItem
