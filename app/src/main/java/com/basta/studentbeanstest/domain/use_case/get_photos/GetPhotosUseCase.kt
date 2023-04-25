@@ -9,20 +9,20 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
 
-class GetPhotosUseCase(private val repo: PhotoRepository) {
+class GetPhotosUseCase(private val repository: PhotoRepository) {
     operator fun invoke(): Flow<Resource<List<Photo>>> = flow {
-        try {
-            emit(Resource.Loading())
-
-            val photos = repo.getPhotos()
-
+        emit(Resource.Loading())
+        val result = repository.getPhotos()
+        result.onSuccess { photos ->
             emit(Resource.Success(photos.map { it.toPhoto() }))
-
-        } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "Error, try later."))
-        } catch (e: IOException) {
-            emit(Resource.Error("Looks like you don't have internet connection."))
+        }.onFailure { e ->
+            emit(Resource.Error(message = e.toMessage()))
         }
     }
+}
 
+fun Throwable.toMessage() = when (this) {
+    is HttpException -> this.localizedMessage ?: "Error, try later."
+    is IOException -> "Looks like you don't have internet connection."
+    else -> "Try again later"
 }
