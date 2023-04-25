@@ -1,8 +1,8 @@
 package com.basta.studentbeanstest.domain.use_case.authenticate
 
+import  com.basta.studentbeanstest.domain.models.Result
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import  com.basta.studentbeanstest.domain.models.Result
 
 /*
 TODO:

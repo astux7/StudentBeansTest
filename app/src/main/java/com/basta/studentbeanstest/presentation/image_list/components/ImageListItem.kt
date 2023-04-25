@@ -31,7 +31,7 @@ fun ImageListItem(photo: Photo) {
 
         AsyncImage(
             model = photo.thumbnailUrl,
-            contentDescription = stringResource(R.string.image_label),
+            contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .width(100.dp)

@@ -5,3 +5,7 @@ object Constants {
 
     const val PASSWORD_LENGTH = 1
 }
+
+object TestTags {
+    const val LAZY_COLUMN_TAG = "LAZY_COLUMN"
+}

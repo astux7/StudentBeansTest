@@ -20,6 +20,8 @@ import com.basta.studentbeanstest.navigation.Directions
 import com.basta.studentbeanstest.presentation.components.NavTitle
 import com.basta.studentbeanstest.presentation.image_list.components.ImageListItem
 import androidx.compose.foundation.lazy.items
+import androidx.compose.ui.platform.testTag
+import com.basta.studentbeanstest.common.TestTags.LAZY_COLUMN_TAG
 
 @Composable
 fun ImageListScreen(
@@ -48,7 +50,7 @@ fun ImageListScreen(
 
         when (state) {
             is Resource.Success -> {
-                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                LazyColumn(modifier = Modifier.fillMaxSize().testTag(LAZY_COLUMN_TAG)) {
                     items(state.data.orEmpty()) { photo ->
                         ImageListItem(photo = photo)
                     }
