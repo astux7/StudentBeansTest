@@ -17,7 +17,7 @@ class SignInViewModel(
     private val validatePasswordUseCase: ValidatePasswordUseCase,
     private val authenticateUseCase: AuthenticateUseCase
 ) : ViewModel() {
-    var state by mutableStateOf(LoginFormState())
+    var state by mutableStateOf(SignInFormState())
         private set
 
     private var authenticated by mutableStateOf(false)
